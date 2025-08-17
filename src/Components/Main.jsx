@@ -86,7 +86,7 @@ function Main() {
       )}
 
       {/* Pagination Controls */}
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
+      <div style={{ textAlign: "center", marginTop: "20px", marginBottom: "20px",}}>
         <button
           disabled={page === 1}
           onClick={() => setPage((p) => p - 1)}
