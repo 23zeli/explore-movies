@@ -1,16 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from "./Components/Main";
+import MovieDetails from "./Components/MovieDetails";
+import Header from "./Components/Header";
+import React from "react";
+import "./index.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [darkMode, setDarkMode] = React.useState(false);
 
   return (
-    <div>
-     <h1>Explore Movies</h1>
+    <div className={darkMode ? "app dark" : "app"}>
+      <Router>
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Main />
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/movie/:id" element={<MovieDetails />} />
+        </Routes>
+      </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
